@@ -1,78 +1,83 @@
-🩺 Skin Disease Detection using Hybrid Deep Learning (ResNet50 + DenseNet121)
+# 🩺 Skin Disease Detection using Hybrid Deep Learning 
 
-This repository contains our Foundations of Machine Learning (AI60203) project on multi-class Skin Disease Detection using a Hybrid CNN architecture, Out-of-Distribution (OOD) Detection, and Explainable AI (Grad-CAM).
+This repository contains our project on **multi-class Skin Disease Detection** using a **Hybrid CNN architecture**, **Out-of-Distribution (OOD) Detection**, and **Explainable AI (Grad-CAM)**.
 
-The model combines the strengths of ResNet50 (global features) and DenseNet121 (fine-grained textures) to achieve significantly better accuracy than single-backbone networks.
+The model combines the strengths of **ResNet50** (global feature extraction)** and **DenseNet121 (fine-grained texture extraction)** to achieve significantly better accuracy than single-backbone networks.
 
-🚀 Features
-✅ Hybrid Model (ResNet50 + DenseNet121)
+---
 
-Parallel feature extraction pipelines
+## 🚀 Features
 
-Feature fusion for richer representation
+### ✅ **Hybrid Model (ResNet50 + DenseNet121)**
+* Parallel feature extraction pipelines  
+* Feature fusion for richer representation  
+* Improved generalization and accuracy  
 
-Improved generalization and accuracy
+---
 
-✅ Multi-Class Skin Disease Classification
+### ✅ **Multi-Class Skin Disease Classification**
+* **22 disease classes**
+* **15,000+ real clinical images**
+* Softmax-based multi-class prediction  
 
-22 disease classes
+---
 
-Dataset with 15,000+ real clinical images
+### ✅ **Out-of-Distribution (OOD) Detection**
+* Detects unseen or irrelevant images  
+* Distance-based novelty identification  
+* Prevents unsafe or misleading predictions  
 
-Softmax-based multi-class prediction
+---
 
-✅ Out-of-Distribution (OOD) Detection
+### ✅ **Explainability (Grad-CAM)**
+* Highlights important lesion regions  
+* Improves clinical interpretability  
+* Increases model trust and transparency  
 
-Detects unseen or irrelevant images
+---
 
-Distance-based novelty identification
+### ✅ **Baseline Comparison**
+* **ResNet50**
+* **DenseNet121**
+* **PCA-based dimension reduction experiments**
 
-Prevents unsafe or misleading predictions
+**Hybrid model achieves the highest accuracy: 79.11%**
 
-✅ Explainability (Grad-CAM)
+---
 
-Highlights important regions in images
+## 📊 Results Summary
 
-Helps in clinical interpretability
+| Rank | Model                          | Test Accuracy (%) |
+|------|--------------------------------|-------------------|
+| 1    | **Hybrid (ResNet50 + DenseNet121)** | **79.11**          |
+| 2    | DenseNet121                    | 76.20             |
+| 3    | ResNet50                       | 64.88             |
 
-Increases model trust and transparency
+*Training Accuracy:* **97.5%**  
+*Testing Accuracy:* **79.11%**
 
-✅ Baseline Comparison
+---
 
-ResNet50
+## 📁 Dataset
 
-DenseNet121
+We use the publicly available **Skin Disease Dataset** from Kaggle:
 
-PCA-based dimensionality reduction tests
+🔗 **https://www.kaggle.com/datasets/pacificrm/skindiseasedataset**
 
-Hybrid model achieves the highest test accuracy: 79.11%
+**Dataset Details:**
+* 22 skin disease classes  
+* ~15,000 images  
+* Real-world distribution  
+* Class imbalance handled through augmentation  
 
-📊 Results Summary
-Rank	Model	Test Accuracy (%)
-1	Hybrid (ResNet50 + DenseNet121)	79.11
-2	DenseNet121	76.20
-3	ResNet50	64.88
+---
 
-Training Accuracy: 97.5%
-Testing Accuracy: 79.11%
-
-📁 Dataset
-
-We use the publicly available Skin Disease Dataset from Kaggle:
-
-🔗 https://www.kaggle.com/datasets/pacificrm/skindiseasedataset
-
-22 skin disease classes
-
-~15,000 images
-
-Real-world clinical distribution
-
-Imbalanced dataset (handled via augmentation)
+## 🧠 Model Architecture
 Input Image
-     │
-     ├──► ResNet50 Backbone ──► Feature Vector (Global Features)
-     │
-     ├──► DenseNet121 Backbone ─► Feature Vector (Texture Features)
-     │
-     └──► Feature Fusion ───► Classification Head ───► Softmax Output (22 Classes)
+│
+├──► ResNet50 Backbone ─────► Feature Vector (Global Features)
+│
+├──► DenseNet121 Backbone ─► Feature Vector (Texture Features)
+│
+└──► Feature Fusion ────────► Classification Head ─────► Softmax Output (22 Classes)
+
